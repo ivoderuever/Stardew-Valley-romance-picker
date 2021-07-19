@@ -4,15 +4,21 @@
       <h1>Stardew Valley romance picker</h1>
     </header>
     <div class="content center">
-        <div v-if="gender != null">
-
+        <div v-if="gender != null" class="randomized">
+          <h2>A suggested romance partner:</h2>
+          <div class="partner">
+            <img :src="require(`../assets/${vilager.image}.png`)" alt="Vilager">
+            <h2>{{ vilager.name }}</h2>
+          </div>
+          <button class="btn" @click="randomize()">Randomize</button>
+          <button class="btn back-btn" @click="reset()">Back</button>
         </div>
         <div class="candidates" v-if="gender == null">
             <h2>Which group of candidates do you want to get randomized result from?</h2>
             <div class="gender-btn">
-                <button class="btn">All</button>
-                <button class="btn">Bachelors</button>
-                <button class="btn">Bachelorettes</button>
+                <button class="btn" @click="type('all')">All</button>
+                <button class="btn" @click="type(0)">Bachelors</button>
+                <button class="btn" @click="type(1)">Bachelorettes</button>
             </div>
         </div>
     </div>
@@ -93,9 +99,45 @@ export default {
           image: 13,
         },
       ],
-        gender: null,
+      filteredArr: [],
+      gender: null,
+      vilager: {}
     };
   },
+  methods: {
+    type(type) {
+      switch (type) {
+        case 0:
+          this.gender = 0;
+          this.filteredArr = this.vilagers.filter(obj => obj.gender == this.gender);
+          this.randomize();
+          break;
+        case 1:
+          this.gender = 1;
+          this.filteredArr = this.vilagers.filter(obj => obj.gender == this.gender);
+          this.randomize();
+          break;
+        default:
+          this.gender = 'all'
+          this.filteredArr = this.vilagers;
+          this.randomize();
+          break;
+      }
+    },
+    randomize() {
+      let randomized = this.filteredArr[Math.floor(Math.random()*this.filteredArr.length)]
+      if (this.vilager.name != randomized.name) {
+        this.vilager = randomized; 
+      } else {
+        this.randomize();
+      }
+    },
+    reset() {
+      this.filteredArr = [];
+      this.vilager = {};
+      this.gender = null;
+    }
+  }
 };
 </script>
 
@@ -116,18 +158,63 @@ header {
     h2 {
         display: block;
         margin: 0;
+        padding: 0 10px;
+        text-align: center;
     }
   .candidates {
       padding: 10px 0px;
-      padding-top: 300px;
       .gender-btn {
           display: flex;
           justify-content: space-between;
           width: 300px;
           margin: 0 auto;
-      padding: 10px 0px;
+          padding: 10px 0px;
           display: flex;
       }
   }
+  .randomized {
+      padding: 10px 0px;
+
+      .partner {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 20px;
+        img {
+          width: 150px;
+          height: 150px;
+          margin: 0 auto;
+          padding: 10px;
+          background: #FFD284;
+          border: 4px solid #853605;
+        }
+
+        h2 {
+          text-align: center;
+          color: #454545;
+          background: #FFD284;
+          border: 4px solid #853605;
+          margin: 0 auto;
+          margin-top: 10px;
+          border-radius: 5px;
+          width: 200px;
+        }
+      }
+
+      .btn {
+        display: block;
+        margin: 0 auto;
+      }
+
+      .back-btn {
+        margin-top: 10px;
+      }
+
+  }
+
+  .content {
+    height: 80vh;
+  }
+  
 }
 </style>
