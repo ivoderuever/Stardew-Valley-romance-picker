@@ -9,7 +9,7 @@ import { RouterView } from 'vue-router'
       <nav class="navigation">
         <router-link class="link" to="/">Home</router-link>
         <router-link class="link" to="/picker">Picker</router-link>
-        <router-link class="link" to="/calendar">Calendar</router-link>
+        <!-- <router-link class="link" to="/calendar">Calendar</router-link> -->
       </nav>
     </div>
   </header>
