@@ -1,61 +1,43 @@
-<template>
-  <div id="app">
-    <router-view></router-view>
-  </div>
-</template>
-
-<script>
-export default {
-
-}
+<script setup lang="ts">
+import { RouterView } from 'vue-router'
 </script>
 
-<style lang="scss">
-@import url("https://use.typekit.net/eqp3quc.css");
+<template>
+  <header class="flex-center">
+    <div class="sv-card">
+      <h1 class="title">Stardew Valley Helper</h1>
+      <nav class="navigation">
+        <router-link class="link" to="/">Home</router-link>
+        <router-link class="link" to="/picker">Picker</router-link>
+        <!-- <router-link class="link" to="/calendar">Calendar</router-link> -->
+      </nav>
+    </div>
+  </header>
+  <main>
+    <RouterView />
+  </main>
+</template>
 
-:root {
-  --bg: #0c0c0c;
-  --font: #f0f0f0;
-
-  --primary: #dd3e61;
-}
-
-html, body {
-  height: unset;
-  width: unset;
-}
-
-body {
-  background-color: var(--bg);
-  background: url(./assets/bg.png) no-repeat fixed center center / cover;
-  color: var(--font);
-  padding: 0;
-  margin: 0;
-  position: relative;
-  width: 100%;
-  height: 100%;
-  font-family: sofia-pro;
-
-
-  .center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+<style scoped lang="scss">
+header {
+  .title {    
+    padding: 0.2rem;
+    margin: 0;
+    text-align: center;
   }
-}
+  
+  .navigation {
+    display: flex;
+    justify-content: space-evenly;
 
-.btn {
-  background-color: #FA9305;
-  border: 1px solid #853605;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  font-size: 18px;
-  border-radius: 1px;
-  padding: 5px 10px;
-  cursor: pointer;
-  font-family: inherit;
+    .link {
+      color: var(--font-secondary);
+      text-decoration: none;
+    }
 
-  &:hover {
-    background-color: #F08003;
+    .router-link-active {
+      text-decoration: underline;
+    }
   }
 }
 </style>
