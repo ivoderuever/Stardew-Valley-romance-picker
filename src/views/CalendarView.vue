@@ -30,10 +30,29 @@ onMounted(() => {
 
 <template>
   <div>
-    <div>
+    <div class="tabs">
       <router-link :to="{name: 'fullCalendar'}">All</router-link>
       <router-link :to="{name: 'favorites'}">Favorites</router-link>
     </div>
     <router-view />
   </div>
 </template>
+
+<style scoped lang="scss">
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+
+  a {
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: var(--font);
+    font-size: 24px;
+  }
+
+  .router-link-active {
+    text-decoration: underline;
+  }
+}
+</style>

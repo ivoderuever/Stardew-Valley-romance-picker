@@ -5,11 +5,11 @@ import { RouterView } from 'vue-router'
 <template>
   <header class="flex-center">
     <div class="sv-card">
-      <h1 class="title">Stardew Valley Helper</h1>
+      <h1 class="title">Stardew Valley Helperr</h1>
       <nav class="navigation">
         <router-link class="link" to="/">Home</router-link>
         <router-link class="link" to="/picker">Picker</router-link>
-        <!-- <router-link class="link" to="/calendar">Calendar</router-link> -->
+        <router-link class="link" to="/calendar">Calendar</router-link>
       </nav>
     </div>
   </header>

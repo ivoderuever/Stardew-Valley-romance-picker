@@ -34,5 +34,16 @@ export const useStardewStore = defineStore('stardew', () => {
     }
   }
 
-  return { npcs, favoriteNpcs, getRandomMarriageCandidate }
+  function getNpcBySeason(season: number | null):NPC[] {
+    if (season === null) {
+      // return all npc's sorted by birthday season and day
+      return npcs.value.sort((a, b) => a.birthday.season - b.birthday.season || a.birthday.day - b.birthday.day);
+    } else {
+      // return npc's with the birthday season sorted by day
+      const npcsBySeason = npcs.value.filter(npc => npc.birthday.season === season);
+      return npcsBySeason.sort((a, b) => a.birthday.day - b.birthday.day);
+    }
+  }
+
+  return { npcs, favoriteNpcs, getRandomMarriageCandidate, getNpcBySeason }
 })
