@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
+import { useStardewStore } from '@/stores/stardew';
+
+const stardew = useStardewStore();
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+  <h1>{{ stardew.npcs }}</h1>
 </template>
