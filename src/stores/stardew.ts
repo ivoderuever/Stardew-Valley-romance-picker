@@ -14,5 +14,17 @@ export const useStardewStore = defineStore('stardew', () => {
 
   onMounted(loadNpcs);
 
-  return { npcs }
+  function getRandomMarriageCandidate(gender: number) {
+    const marriageCandidates = npcs.value.filter(npc => npc.marageable);
+    if (gender) {
+      const genderCandidates = marriageCandidates.filter(npc => npc.gender === gender);
+      const randomCandidate = genderCandidates[Math.floor(Math.random() * genderCandidates.length)];
+      return randomCandidate;
+    } else {
+      const randomCandidate = marriageCandidates[Math.floor(Math.random() * marriageCandidates.length)];
+      return randomCandidate;
+    }
+  }
+
+  return { npcs, getRandomMarriageCandidate }
 })

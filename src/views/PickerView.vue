@@ -5,5 +5,7 @@ const stardew = useStardewStore();
 </script>
 
 <template>
-  <h1>{{ stardew.npcs }}</h1>
+  <div>
+    
+  </div>
 </template>
