@@ -7,6 +7,6 @@ export interface NPC {
   id: number;
   name: string;
   gender: number;
-  marageable: boolean;
+  marriageable: boolean;
   birthday: Birthday;
 }

@@ -3,7 +3,7 @@
     "id": 1,
     "name": "Alex",
     "gender": 0,
-    "marageable": true,
+    "marriageable": true,
     "birthday": {
       "season": 1,
       "day": 13
@@ -13,7 +13,7 @@
     "id": 2,
     "name": "Elliott",
     "gender": 0,
-    "marageable": true,
+    "marriageable": true,
     "birthday": {
       "season": 2,
       "day": 5
@@ -23,7 +23,7 @@
     "id": 3,
     "name": "Harvey",
     "gender": 0,
-    "marageable": true,
+    "marriageable": true,
     "birthday": {
       "season": 3,
       "day": 14
@@ -33,7 +33,7 @@
     "id": 4,
     "name": "Sam",
     "gender": 0,
-    "marageable": true,
+    "marriageable": true,
     "birthday": {
       "season": 1,
       "day": 17
@@ -43,7 +43,7 @@
     "id": 5,
     "name": "Sabastian",
     "gender": 0,
-    "marageable": true,
+    "marriageable": true,
     "birthday": {
       "season": 3,
       "day": 10
@@ -53,7 +53,7 @@
     "id": 6,
     "name": "Shane",
     "gender": 0,
-    "marageable": true,
+    "marriageable": true,
     "birthday": {
       "season": 0,
       "day": 20
@@ -63,7 +63,7 @@
     "id": 7,
     "name": "Abigail",
     "gender": 1,
-    "marageable": true,
+    "marriageable": true,
     "birthday": {
       "season": 2,
       "day": 13
@@ -73,7 +73,7 @@
     "id": 8,
     "name": "Emily",
     "gender": 1,
-    "marageable": true,
+    "marriageable": true,
     "birthday": {
       "season": 0,
       "day": 27
@@ -83,7 +83,7 @@
     "id": 9,
     "name": "Haley",
     "gender": 1,
-    "marageable": true,
+    "marriageable": true,
     "birthday": {
       "season": 0,
       "day": 14
@@ -93,7 +93,7 @@
     "id": 10,
     "name": "Leah",
     "gender": 1,
-    "marageable": true,
+    "marriageable": true,
     "birthday": {
       "season": 3,
       "day": 23
@@ -103,7 +103,7 @@
     "id": 11,
     "name": "Maru",
     "gender": 1,
-    "marageable": true,
+    "marriageable": true,
     "birthday": {
       "season": 1,
       "day": 10
@@ -113,7 +113,7 @@
     "id": 12,
     "name": "Penny",
     "gender": 1,
-    "marageable": true,
+    "marriageable": true,
     "birthday": {
       "season": 3,
       "day": 2
@@ -123,7 +123,7 @@
     "id": 13,
     "name": "Krobus",
     "gender": 2,
-    "marageable": true,
+    "marriageable": true,
     "birthday": {
       "season": 3,
       "day": 1
@@ -133,7 +133,7 @@
     "id": 14,
     "name": "Caroline",
     "gender": 1,
-    "marageable": false,
+    "marriageable": false,
     "birthday": {
       "season": 3,
       "day": 7
@@ -143,7 +143,7 @@
     "id": 15,
     "name": "Clint",
     "gender": 0,
-    "marageable": false,
+    "marriageable": false,
     "birthday": {
       "season": 3,
       "day": 26
@@ -153,7 +153,7 @@
     "id": 16,
     "name": "Demetrius",
     "gender": 0,
-    "marageable": false,
+    "marriageable": false,
     "birthday": {
       "season": 1,
       "day": 19
@@ -163,7 +163,7 @@
     "id": 17,
     "name": "Dwarf",
     "gender": 2,
-    "marageable": false,
+    "marriageable": false,
     "birthday": {
       "season": 1,
       "day": 22
@@ -173,7 +173,7 @@
     "id": 18,
     "name": "Evelyn",
     "gender": 1,
-    "marageable": false,
+    "marriageable": false,
     "birthday": {
       "season": 3,
       "day": 20
@@ -183,7 +183,7 @@
     "id": 19,
     "name": "George",
     "gender": 0,
-    "marageable": false,
+    "marriageable": false,
     "birthday": {
       "season": 2,
       "day": 24
@@ -193,7 +193,7 @@
     "id": 20,
     "name": "Gus",
     "gender": 0,
-    "marageable": false,
+    "marriageable": false,
     "birthday": {
       "season": 1,
       "day": 8
@@ -203,7 +203,7 @@
     "id": 21,
     "name": "Jas",
     "gender": 1,
-    "marageable": false,
+    "marriageable": false,
     "birthday": {
       "season": 1,
       "day": 4
@@ -213,7 +213,7 @@
     "id": 22,
     "name": "Jodi",
     "gender": 1,
-    "marageable": false,
+    "marriageable": false,
     "birthday": {
       "season": 2,
       "day": 11
@@ -223,7 +223,7 @@
     "id": 23,
     "name": "Kent",
     "gender": 0,
-    "marageable": false,
+    "marriageable": false,
     "birthday": {
       "season": 0,
       "day": 4
@@ -233,7 +233,7 @@
     "id": 24,
     "name": "Leo",
     "gender": 0,
-    "marageable": false,
+    "marriageable": false,
     "birthday": {
       "season": 1,
       "day": 26
@@ -243,7 +243,7 @@
     "id": 25,
     "name": "Lewis",
     "gender": 0,
-    "marageable": false,
+    "marriageable": false,
     "birthday": {
       "season": 0,
       "day": 7
@@ -253,7 +253,7 @@
     "id": 26,
     "name": "Linus",
     "gender": 0,
-    "marageable": false,
+    "marriageable": false,
     "birthday": {
       "season": 3,
       "day": 3
@@ -263,7 +263,7 @@
     "id": 27,
     "name": "Marnie",
     "gender": 1,
-    "marageable": false,
+    "marriageable": false,
     "birthday": {
       "season": 2,
       "day": 18
@@ -273,7 +273,7 @@
     "id": 28,
     "name": "Pam",
     "gender": 1,
-    "marageable": false,
+    "marriageable": false,
     "birthday": {
       "season": 0,
       "day": 18
@@ -283,7 +283,7 @@
     "id": 29,
     "name": "Pierre",
     "gender": 0,
-    "marageable": false,
+    "marriageable": false,
     "birthday": {
       "season": 0,
       "day": 26
@@ -293,7 +293,7 @@
     "id": 30,
     "name": "Robin",
     "gender": 1,
-    "marageable": false,
+    "marriageable": false,
     "birthday": {
       "season": 2,
       "day": 21
@@ -303,7 +303,7 @@
     "id": 31,
     "name": "Sandy",
     "gender": 1,
-    "marageable": false,
+    "marriageable": false,
     "birthday": {
       "season": 2,
       "day": 15
@@ -313,7 +313,7 @@
     "id": 32,
     "name": "Vincent",
     "gender": 0,
-    "marageable": false,
+    "marriageable": false,
     "birthday": {
       "season": 0,
       "day": 10
@@ -323,7 +323,7 @@
     "id": 33,
     "name": "Willy",
     "gender": 0,
-    "marageable": false,
+    "marriageable": false,
     "birthday": {
       "season": 2,
       "day": 24
@@ -333,7 +333,7 @@
     "id": 34,
     "name": "Wizard",
     "gender": 0,
-    "marageable": false,
+    "marriageable": false,
     "birthday": {
       "season": 1,
       "day": 17
