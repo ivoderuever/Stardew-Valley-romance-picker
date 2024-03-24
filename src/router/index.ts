@@ -16,7 +16,19 @@ const router = createRouter({
     {
       path: '/calendar',
       name: 'calendar',
-      component: () => import('../views/CalendarView.vue')
+      component: () => import('../views/CalendarView.vue'),
+      children: [
+        {
+          path: 'all',
+          name: 'fullCalendar',
+          component: () => import('../components/FullCalendar.vue')
+        },
+        {
+          path: 'favorites',
+          name: 'favorites',
+          component: () => import('../components/FavoritesCalendar.vue')
+        }
+      ]
     },
     {
       path: '/:pathMatch(.*)*',

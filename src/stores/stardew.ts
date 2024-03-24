@@ -5,11 +5,19 @@ import type { NPC } from '@/helpers/interface/npc';
 export const useStardewStore = defineStore('stardew', () => {
   // load npc data frrom npc.json
   const npcs = ref<NPC[]>([]);
+  const favoriteNpcs = ref<NPC[]>([]);
 
   const loadNpcs = async () => {
     const response = await fetch('/src/helpers/data/npc.json');
     const data = await response.json();
     npcs.value = data;
+
+    // get jsonstringigied data from local storage with list of id's of favorite npcs
+    const favorites = localStorage.getItem('favorites');
+    if (favorites) {
+      const favoriteIds = JSON.parse(favorites);
+      favoriteNpcs.value = npcs.value.filter(npc => favoriteIds.includes(npc.id));
+    }
   }
 
   onMounted(loadNpcs);
@@ -26,5 +34,5 @@ export const useStardewStore = defineStore('stardew', () => {
     }
   }
 
-  return { npcs, getRandomMarriageCandidate }
+  return { npcs, favoriteNpcs, getRandomMarriageCandidate }
 })
