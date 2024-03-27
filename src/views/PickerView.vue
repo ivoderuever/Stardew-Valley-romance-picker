@@ -22,6 +22,11 @@ function setType(type: string) {
 function getPartner() {
   selectedPartner.value = stardew.getRandomMarriageCandidate(selectedType.value as string);
 }
+
+function getImageUrl(id: string) {
+  return new URL(`../assets/img/avatars/${id}.png`, import.meta.url).href
+}
+
 </script>
 
 <template>
@@ -38,7 +43,7 @@ function getPartner() {
       <div class="center">
         <h2>A suggested romance partner:</h2>
         <div class="sv-avatar-frame">
-          <img :src="`/src/assets/img/avatars/${selectedPartner?.id.toString()}.png`" :alt="selectedPartner?.name" />
+            <img :src="getImageUrl(selectedPartner?.id?.toString() ?? '')" :alt="selectedPartner?.name" />
           <h2>{{ selectedPartner?.name }}</h2>
         </div>
         <button class="sv-btn mb-20" @click="setType(selectedType)" type="button">Randomize</button>
