@@ -39,7 +39,9 @@ onMounted(() => {
     <div class="villager-container">
       <div v-for="npc in npcList" :key="npc.id" class="villager">
         <div class="sv-avatar-frame">
-          <img :src="`/src/assets/img/avatars/${npc.id.toString()}.png`" :alt="npc.name" />
+          <a :href="`https://stardewvalleywiki.com/${npc.name}`" target="_blank">
+            <img :src="`/src/assets/img/avatars/${npc.id.toString()}.png`" :alt="npc.name" />
+          </a>
           <h2>
             <span>{{ npc.name }}</span>
             <span>{{ season(npc.birthday.season) }} {{ npc.birthday.day }}</span>
