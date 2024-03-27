@@ -22,6 +22,7 @@ function setSeason(seasonId: number) {
 }
 
 onMounted(() => {
+  console.log('why this not work?')
   npcList.value = stardew.getNpcBySeason(selectedSeason.value);
 });
 
@@ -29,7 +30,7 @@ onMounted(() => {
 
 <template>
   <div>
-    <div class="flex-evenly">
+    <div class="seasons flex-evenly">
       <button class="sv-btn" @click="setSeason(0)" type="button">Spring</button>
       <button class="sv-btn" @click="setSeason(1)" type="button">Summer</button>
       <button class="sv-btn" @click="setSeason(2)" type="button">Fall</button>
@@ -39,9 +40,36 @@ onMounted(() => {
       <div v-for="npc in npcList" :key="npc.id" class="villager">
         <div class="sv-avatar-frame">
           <img :src="`/src/assets/img/avatars/${npc.id.toString()}.png`" :alt="npc.name" />
-          <h2><p>{{ npc.name }}</p><p>{{ season(npc.birthday.season) }} {{ npc.birthday.day }}</p></h2>
+          <h2>
+            <span>{{ npc.name }}</span>
+            <span>{{ season(npc.birthday.season) }} {{ npc.birthday.day }}</span>
+          </h2>
         </div>
       </div>
     </div>
   </div>
 </template>
+
+<style scoped lang="scss">
+.seasons {
+  position: relative;
+  margin: 0 auto;
+  width: 400px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.sv-avatar-frame {
+  h2 {
+    span {
+      display: block;
+    }
+  }
+}
+
+.villager-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+</style>

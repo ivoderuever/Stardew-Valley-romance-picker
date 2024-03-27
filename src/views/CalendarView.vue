@@ -1,11 +1,13 @@
 <script setup lang="ts">
-import { watch, onMounted } from 'vue';
+import { ref, watch, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useStardewStore } from '@/stores/stardew';
 
 const router = useRouter();
 const $route = useRoute();
 const stardew = useStardewStore();
+
+const spoilerWarning = ref(true);
 
 function redirect() {
   if (stardew.favoriteNpcs.length === 0) {
@@ -22,19 +24,40 @@ watch(() => $route.name, (name) => {
   }
 });
 
-onMounted(() => {
+onMounted(async () => {
+  // check local storage if spoilerWarning is set to false
+    await stardew.loadNpcs();
+
+  const warning = localStorage.getItem('spoilerWarning');
+  if (warning === 'false') {
+    spoilerWarning.value = false;
+  }
   redirect();
 });
+
+function disableSpoiler() {
+  spoilerWarning.value = false;
+  localStorage.setItem('spoilerWarning', 'false');
+}
 
 </script>
 
 <template>
-  <div>
-    <div class="tabs">
+  <div v-if="!spoilerWarning">
+    <!-- <div class="tabs">
       <router-link :to="{name: 'fullCalendar'}">All</router-link>
       <router-link :to="{name: 'favorites'}">Favorites</router-link>
-    </div>
+    </div> -->
     <router-view />
+  </div>
+  <div class="flex-center" v-else>
+    <div class="sv-card w-400">
+      <h2>Warning!</h2>
+      <p>This page contains spoilers for character you meet later. If you don't care you can safely proceed. But don't say I did not warn you.</p>
+      <div class="space-evenly">
+        <button class="sv-btn" @click="disableSpoiler()" type="button">Continue</button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -54,5 +77,9 @@ onMounted(() => {
   .router-link-active {
     text-decoration: underline;
   }
+}
+
+.w-400 {
+  width: 400px;
 }
 </style>
