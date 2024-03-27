@@ -25,9 +25,6 @@ watch(() => $route.name, (name) => {
 });
 
 onMounted(async () => {
-  // check local storage if spoilerWarning is set to false
-    await stardew.loadNpcs();
-
   const warning = localStorage.getItem('spoilerWarning');
   if (warning === 'false') {
     spoilerWarning.value = false;

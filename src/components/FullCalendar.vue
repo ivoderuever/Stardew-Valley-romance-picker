@@ -22,9 +22,12 @@ function setSeason(seasonId: number) {
 }
 
 onMounted(() => {
-  console.log('why this not work?')
   npcList.value = stardew.getNpcBySeason(selectedSeason.value);
 });
+
+function getImageUrl(id: string) {
+  return new URL(`../assets/img/avatars/${id}.png`, import.meta.url).href
+}
 
 </script>
 
@@ -40,7 +43,7 @@ onMounted(() => {
       <div v-for="npc in npcList" :key="npc.id" class="villager">
         <div class="sv-avatar-frame">
           <a :href="`https://stardewvalleywiki.com/${npc.name}`" target="_blank">
-            <img :src="`/src/assets/img/avatars/${npc.id.toString()}.png`" :alt="npc.name" />
+            <img :src="getImageUrl(npc.id.toString())" :alt="npc.name" />
           </a>
           <h2>
             <span>{{ npc.name }}</span>
