@@ -7,7 +7,7 @@ export const useStardewStore = defineStore('stardew', () => {
   const npcs = ref<NPC[]>([]);
   const favoriteNpcs = ref<NPC[]>([]);
 
-  const loadNpcs = async () => {
+  async function loadNpcs() {
     const response = await fetch('/src/helpers/data/npc.json');
     const data = await response.json();
     npcs.value = data;
@@ -19,8 +19,6 @@ export const useStardewStore = defineStore('stardew', () => {
       favoriteNpcs.value = npcs.value.filter(npc => favoriteIds.includes(npc.id));
     }
   }
-
-  onMounted(loadNpcs);
 
   function getRandomMarriageCandidate(gender: string):NPC {
     const marriageCandidates = npcs.value.filter(npc => npc.marriageable);
@@ -34,5 +32,16 @@ export const useStardewStore = defineStore('stardew', () => {
     }
   }
 
-  return { npcs, favoriteNpcs, getRandomMarriageCandidate }
+  function getNpcBySeason(season: number | null):NPC[] {
+    if (season === null) {
+      // return all npc's sorted by birthday season and day
+      return npcs.value.sort((a, b) => a.birthday.season - b.birthday.season || a.birthday.day - b.birthday.day);
+    } else {
+      // return npc's with the birthday season sorted by day
+      const npcsBySeason = npcs.value.filter(npc => npc.birthday.season === season);
+      return npcsBySeason.sort((a, b) => a.birthday.day - b.birthday.day);
+    }
+  }
+
+  return { npcs, favoriteNpcs, getRandomMarriageCandidate, getNpcBySeason, loadNpcs }
 })
