@@ -41,7 +41,7 @@
   },
   {
     "id": 5,
-    "name": "Sabastian",
+    "name": "Sebastian",
     "gender": 0,
     "marriageable": true,
     "birthday": {
@@ -115,7 +115,7 @@
     "gender": 1,
     "marriageable": true,
     "birthday": {
-      "season": 3,
+      "season": 2,
       "day": 2
     }
   },
@@ -325,7 +325,7 @@
     "gender": 0,
     "marriageable": false,
     "birthday": {
-      "season": 3,
+      "season": 1,
       "day": 24
     }
   },
@@ -335,7 +335,7 @@
     "gender": 0,
     "marriageable": false,
     "birthday": {
-      "season": 1,
+      "season": 3,
       "day": 17
     }
   }
