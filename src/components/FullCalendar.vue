@@ -43,7 +43,7 @@ function getImageUrl(id: string) {
 <template>
   <div>
     <div class="search-container">
-      <input class="sv-search-bar" type="text" placeholder="Search" v-model="query">
+      <input class="sv-search-bar" type="text" placeholder="Search" v-model="searchQuery">
     </div>
     <div class="seasons flex-evenly">
       <button class="sv-btn" @click="setSeason(0)" type="button">Spring</button>
