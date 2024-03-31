@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { computed, ref } from 'vue';
 import type { NPC } from '@/helpers/interface/npc';
 import { useStardewStore } from '@/stores/stardew';
 
 const stardew = useStardewStore();
 const selectedSeason = ref<number | null>(null);
-const npcList = ref<NPC[]>([]);
+const searchQuery = ref<string>('');
 
 function season(seasonId: number) {
   const seasons = ['Spring', 'Summer', 'Fall', 'Winter'];
@@ -18,11 +18,20 @@ function setSeason(seasonId: number) {
   } else {
     selectedSeason.value = seasonId;
   }
-  npcList.value = stardew.getNpcBySeason(selectedSeason.value);
 }
 
-onMounted(() => {
-  npcList.value = stardew.getNpcBySeason(selectedSeason.value);
+// computed npcList that when query is not "" return npcList filtered on name eq query
+// computed npcList that when selectedSeason is not null return npcList filtered on season eq selectedSeason
+// computed npcList that when query is not "" and selectedSeason is not null return npcList filtered on name eq query and season eq selectedSeason
+
+const npcList = computed<NPC[]>(() => {
+  let list;
+  if (searchQuery.value !== '') {
+    list = stardew.getNpcBySeason(null).filter((npc) => npc.name.toLowerCase().includes(searchQuery.value.toLowerCase()));
+  } else {
+    list = stardew.getNpcBySeason(selectedSeason.value);
+  }
+  return list;
 });
 
 function getImageUrl(id: string) {
@@ -33,6 +42,9 @@ function getImageUrl(id: string) {
 
 <template>
   <div>
+    <div class="search-container">
+      <input class="sv-search-bar" type="text" placeholder="Search" v-model="query">
+    </div>
     <div class="seasons flex-evenly">
       <button class="sv-btn" @click="setSeason(0)" type="button">Spring</button>
       <button class="sv-btn" @click="setSeason(1)" type="button">Summer</button>
@@ -76,5 +88,11 @@ function getImageUrl(id: string) {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
 }
 </style>
