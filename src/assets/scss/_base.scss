@@ -81,3 +81,12 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.sv-search-bar {
+  color: var(--font-secondary);
+  background: var(--sv-bg);
+  border: 4px solid var(--sv-border);
+  padding: 7px;
+  font-family: inherit;
+  font-size: 18px;
+}
