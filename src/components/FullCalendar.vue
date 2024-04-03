@@ -2,36 +2,30 @@
 import { computed, ref } from 'vue';
 import type { NPC } from '@/helpers/interface/npc';
 import { useStardewStore } from '@/stores/stardew';
+import { useRoute } from 'vue-router';
 
 const stardew = useStardewStore();
-const selectedSeason = ref<number | null>(null);
+const route = useRoute();
 const searchQuery = ref<string>('');
+const seasons = ref<string[]>(['Spring', 'Summer', 'Fall', 'Winter']);
 
 function season(seasonId: number) {
-  const seasons = ['Spring', 'Summer', 'Fall', 'Winter'];
-  return seasons[seasonId];
+  return seasons.value[seasonId];
 }
 
-function setSeason(seasonId: number) {
-  if (selectedSeason.value === seasonId) {
-    selectedSeason.value = null;
-  } else {
-    selectedSeason.value = seasonId;
+const selectedSeason = computed(() => {
+  if (route.params.season === 'all') {
+    return null;
   }
-}
-
-// computed npcList that when query is not "" return npcList filtered on name eq query
-// computed npcList that when selectedSeason is not null return npcList filtered on season eq selectedSeason
-// computed npcList that when query is not "" and selectedSeason is not null return npcList filtered on name eq query and season eq selectedSeason
+  return seasons.value.findIndex((season) => season.toLowerCase() === route.params.season);
+});
 
 const npcList = computed<NPC[]>(() => {
-  let list;
   if (searchQuery.value !== '') {
-    list = stardew.getNpcBySeason(null).filter((npc) => npc.name.toLowerCase().includes(searchQuery.value.toLowerCase()));
+    return stardew.getNpcBySeason(null).filter((npc) => npc.name.toLowerCase().includes(searchQuery.value.toLowerCase()));
   } else {
-    list = stardew.getNpcBySeason(selectedSeason.value);
+    return stardew.getNpcBySeason(selectedSeason.value);
   }
-  return list;
 });
 
 function getImageUrl(id: string) {
@@ -46,10 +40,8 @@ function getImageUrl(id: string) {
       <input class="sv-search-bar" type="text" placeholder="Search" v-model="searchQuery">
     </div>
     <div class="seasons flex-evenly">
-      <button class="sv-btn" @click="setSeason(0)" type="button">Spring</button>
-      <button class="sv-btn" @click="setSeason(1)" type="button">Summer</button>
-      <button class="sv-btn" @click="setSeason(2)" type="button">Fall</button>
-      <button class="sv-btn" @click="setSeason(3)" type="button">Winter</button>
+      <router-link :to="{ name: 'fullCalendar', params: { season: 'all' }}" class="sv-btn" >All seasons</router-link>
+      <router-link v-for="(season, index) in seasons" :key="index" :to="{ name: 'fullCalendar', params: { season: season.toLowerCase() }}" class="sv-btn">{{ season }}</router-link>
     </div>
     <div class="villager-container">
       <div v-for="npc in npcList" :key="npc.id" class="villager">
@@ -71,7 +63,7 @@ function getImageUrl(id: string) {
 .seasons {
   position: relative;
   margin: 0 auto;
-  width: 400px;
+  width: 500px;
   display: flex;
   justify-content: space-evenly;
 }

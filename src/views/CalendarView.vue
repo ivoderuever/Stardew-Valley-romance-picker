@@ -11,9 +11,13 @@ const spoilerWarning = ref(true);
 
 function redirect() {
   if (stardew.favoriteNpcs.length === 0) {
-    router.push({ name: 'fullCalendar' });
+    if ($route.params.season === undefined) {
+      router.push({ name: 'fullCalendar', params: { season: 'all' }});
+    }
+    return;
   } else {
     router.push({ name: 'favorites' });
+    return;
   }
 }
 
