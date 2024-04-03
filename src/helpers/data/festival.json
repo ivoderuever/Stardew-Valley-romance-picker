@@ -1,0 +1,101 @@
+[
+  {
+    "id": 1,
+    "name": "Egg Festival",
+    "eventType": "festival",
+    "date": {
+      "season": 0,
+      "day": 13
+    }
+  },
+  {
+    "id": 2,
+    "name": "Desert Festival",
+    "eventType": "event",
+    "date": {
+      "season": 0,
+      "day": [15, 16, 17]
+    }
+  },
+  {
+    "id": 3,
+    "name": "Flower Dance",
+    "eventType": "festival",
+    "date": {
+      "season": 0,
+      "day": 24
+    }
+  },
+  {
+    "id": 4,
+    "name": "Luau",
+    "eventType": "festival",
+    "date": {
+      "season": 1,
+      "day": 11
+    }
+  },
+  {
+    "id": 5,
+    "name": "Dance of the Moonlight Jellies",
+    "eventType": "festival",
+    "date": {
+      "season": 1,
+      "day": 28
+    }
+  },
+  {
+    "id": 6,
+    "name": "Stardew Valley Fair",
+    "eventType": "festival",
+    "date": {
+      "season": 2,
+      "day": 16
+    }
+  },
+  {
+    "id": 7,
+    "name": "Spirit's Eve",
+    "eventType": "festival",
+    "date": {
+      "season": 2,
+      "day": 27
+    }
+  },
+  {
+    "id": 8,
+    "name": "Festival of Ice",
+    "eventType": "festival",
+    "date": {
+      "season": 3,
+      "day": 8
+    }
+  },
+  {
+    "id": 9,
+    "name": "SquidFest",
+    "eventType": "event",
+    "date": {
+      "season": 3,
+      "day": [12, 13]
+    }
+  },
+  {
+    "id": 10,
+    "name": "Night Market",
+    "eventType": "event",
+    "date": {
+      "season": 3,
+      "day": [15, 16, 17]
+    }
+  },
+  {
+    "id": 11,
+    "name": "Feast of the Winter Star",
+    "eventType": "festival",
+    "date": {
+      "season": 3,
+      "day": 25
+    }
+  }
+]

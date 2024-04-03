@@ -11,9 +11,13 @@ const spoilerWarning = ref(true);
 
 function redirect() {
   if (stardew.favoriteNpcs.length === 0) {
-    router.push({ name: 'fullCalendar' });
+    if ($route.params.season === undefined) {
+      router.push({ name: 'fullCalendar', params: { season: 'all' }});
+    }
+    return;
   } else {
     router.push({ name: 'favorites' });
+    return;
   }
 }
 
@@ -50,7 +54,7 @@ function disableSpoiler() {
   <div class="flex-center" v-else>
     <div class="sv-card w-400">
       <h2>Warning!</h2>
-      <p>This page contains spoilers for character you meet later. If you don't care you can safely proceed. But don't say I did not warn you.</p>
+      <p>This page contains spoilers for character you will meet or events you encounter later. If you don't care you can safely proceed. But don't say I did not warn you.</p>
       <div class="space-evenly">
         <button class="sv-btn" @click="disableSpoiler()" type="button">Continue</button>
       </div>

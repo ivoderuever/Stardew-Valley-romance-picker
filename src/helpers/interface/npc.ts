@@ -8,5 +8,5 @@ export interface NPC {
   name: string;
   gender: number;
   marriageable: boolean;
-  birthday: Birthday;
+  date: Birthday;
 }
