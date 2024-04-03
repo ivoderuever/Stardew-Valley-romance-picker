@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
-import type { NPC } from '@/helpers/interface/npc';
+import { computed, ref, onMounted } from 'vue';
 import { useStardewStore } from '@/stores/stardew';
 import { useRoute } from 'vue-router';
 
@@ -8,6 +7,7 @@ const stardew = useStardewStore();
 const $route = useRoute();
 const searchQuery = ref<string>('');
 const seasons = ref<string[]>(['Spring', 'Summer', 'Fall', 'Winter']);
+const eventsVisible = ref<boolean>(false);
 
 function season(seasonId: number) {
   return seasons.value[seasonId];
@@ -24,22 +24,38 @@ const calendarItems = computed<any[]>(() => {
   if (searchQuery.value !== '') {
     return stardew.getNpcBySeason(null).filter((npc) => npc.name.toLowerCase().includes(searchQuery.value.toLowerCase()));
   } else {
-    const npcBySeason = stardew.getNpcBySeason(selectedSeason.value);
-    const festivalBySeason = stardew.getFestivalBySeason(selectedSeason.value);
+    if (eventsVisible.value) {
+      const npcBySeason = stardew.getNpcBySeason(selectedSeason.value);
+      const festivalBySeason = stardew.getFestivalBySeason(selectedSeason.value);
+  
+      let mixedlist = [...npcBySeason.map(npc => ({ ...npc, type: 'npc' })), ...festivalBySeason.map(festival => ({ ...festival, type: 'festival' }))].sort((a, b) => {
+        if (a.date.season === b.date.season) {
+          return Number(a.date.day) - Number(b.date.day);
+        }
+        return a.date.season - b.date.season;
+      });
+  
+      return mixedlist;
+    }
 
-    let mixedlist = [...npcBySeason.map(npc => ({ ...npc, type: 'npc' })), ...festivalBySeason.map(festival => ({ ...festival, type: 'festival' }))].sort((a, b) => {
-      if (a.date.season === b.date.season) {
-        return Number(a.date.day) - Number(b.date.day);
-      }
-      return a.date.season - b.date.season;
-    });
-
-    return mixedlist;
+    return stardew.getNpcBySeason(selectedSeason.value);
   }
 });
 
 function getImageUrl(id: string) {
   return new URL(`../assets/img/avatars/${id}.png`, import.meta.url).href
+}
+
+onMounted(() => {
+  const lsEventsVisible = localStorage.getItem('eventsVisible');
+  if (lsEventsVisible === undefined) localStorage.setItem('eventsVisible', 'false');
+  if (lsEventsVisible === 'true') eventsVisible.value = true;
+  if (lsEventsVisible === 'false') eventsVisible.value = false;
+})
+
+function toggleEventsVisible() {
+  eventsVisible.value = !eventsVisible.value;
+  localStorage.setItem('eventsVisible', eventsVisible.value.toString());
 }
 
 </script>
@@ -48,6 +64,10 @@ function getImageUrl(id: string) {
   <div>
     <div class="search-container">
       <input class="sv-search-bar" type="text" placeholder="Search NPC" v-model="searchQuery">
+      <label class="sv-checkbox" for="eventsVisible"  @click="toggleEventsVisible">
+        <input name="eventsVisible" type="checkbox" v-model="eventsVisible">
+        <span>Show events</span>
+      </label>
     </div>
     <div class="seasons flex-evenly">
       <router-link :to="{ name: 'fullCalendar', params: { season: 'all' }}" class="sv-btn" :class="$route.params.season === 'all' ? 'active' : ''">All seasons</router-link>
@@ -74,7 +94,7 @@ function getImageUrl(id: string) {
             <span>{{ season(item.date.season) }} {{ item.date.day }}</span>
           </h2>
         </div>
-        <div v-if="searchQuery !== ''" class="sv-avatar-frame">
+        <div v-if="searchQuery !== '' || !eventsVisible" class="sv-avatar-frame">
           <a :href="`https://stardewvalleywiki.com/${item.name}`" target="_blank">
             <img :src="getImageUrl(item.id.toString())" :alt="item.name" />
           </a>
@@ -128,7 +148,21 @@ function getImageUrl(id: string) {
 .search-container {
   display: flex;
   justify-content: center;
+  align-items: center;
   margin: 20px 0;
+}
+
+.sv-checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5px;
+  background-color: var(--sv-bg);
+  border: 2px solid var(--sv-border);
+  color: var(--font-secondary);
+  padding: 5px 7px;
+  height: 20px;
+  cursor: pointer;
 }
 
 .active {
