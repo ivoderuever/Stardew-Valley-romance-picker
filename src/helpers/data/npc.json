@@ -4,7 +4,7 @@
     "name": "Alex",
     "gender": 0,
     "marriageable": true,
-    "birthday": {
+    "date": {
       "season": 1,
       "day": 13
     }
@@ -14,7 +14,7 @@
     "name": "Elliott",
     "gender": 0,
     "marriageable": true,
-    "birthday": {
+    "date": {
       "season": 2,
       "day": 5
     }
@@ -24,7 +24,7 @@
     "name": "Harvey",
     "gender": 0,
     "marriageable": true,
-    "birthday": {
+    "date": {
       "season": 3,
       "day": 14
     }
@@ -34,7 +34,7 @@
     "name": "Sam",
     "gender": 0,
     "marriageable": true,
-    "birthday": {
+    "date": {
       "season": 1,
       "day": 17
     }
@@ -44,7 +44,7 @@
     "name": "Sebastian",
     "gender": 0,
     "marriageable": true,
-    "birthday": {
+    "date": {
       "season": 3,
       "day": 10
     }
@@ -54,7 +54,7 @@
     "name": "Shane",
     "gender": 0,
     "marriageable": true,
-    "birthday": {
+    "date": {
       "season": 0,
       "day": 20
     }
@@ -64,7 +64,7 @@
     "name": "Abigail",
     "gender": 1,
     "marriageable": true,
-    "birthday": {
+    "date": {
       "season": 2,
       "day": 13
     }
@@ -74,7 +74,7 @@
     "name": "Emily",
     "gender": 1,
     "marriageable": true,
-    "birthday": {
+    "date": {
       "season": 0,
       "day": 27
     }
@@ -84,7 +84,7 @@
     "name": "Haley",
     "gender": 1,
     "marriageable": true,
-    "birthday": {
+    "date": {
       "season": 0,
       "day": 14
     }
@@ -94,7 +94,7 @@
     "name": "Leah",
     "gender": 1,
     "marriageable": true,
-    "birthday": {
+    "date": {
       "season": 3,
       "day": 23
     }
@@ -104,7 +104,7 @@
     "name": "Maru",
     "gender": 1,
     "marriageable": true,
-    "birthday": {
+    "date": {
       "season": 1,
       "day": 10
     }
@@ -114,7 +114,7 @@
     "name": "Penny",
     "gender": 1,
     "marriageable": true,
-    "birthday": {
+    "date": {
       "season": 2,
       "day": 2
     }
@@ -124,7 +124,7 @@
     "name": "Krobus",
     "gender": 2,
     "marriageable": true,
-    "birthday": {
+    "date": {
       "season": 3,
       "day": 1
     }
@@ -134,7 +134,7 @@
     "name": "Caroline",
     "gender": 1,
     "marriageable": false,
-    "birthday": {
+    "date": {
       "season": 3,
       "day": 7
     }
@@ -144,7 +144,7 @@
     "name": "Clint",
     "gender": 0,
     "marriageable": false,
-    "birthday": {
+    "date": {
       "season": 3,
       "day": 26
     }
@@ -154,7 +154,7 @@
     "name": "Demetrius",
     "gender": 0,
     "marriageable": false,
-    "birthday": {
+    "date": {
       "season": 1,
       "day": 19
     }
@@ -164,7 +164,7 @@
     "name": "Dwarf",
     "gender": 2,
     "marriageable": false,
-    "birthday": {
+    "date": {
       "season": 1,
       "day": 22
     }
@@ -174,7 +174,7 @@
     "name": "Evelyn",
     "gender": 1,
     "marriageable": false,
-    "birthday": {
+    "date": {
       "season": 3,
       "day": 20
     }
@@ -184,7 +184,7 @@
     "name": "George",
     "gender": 0,
     "marriageable": false,
-    "birthday": {
+    "date": {
       "season": 2,
       "day": 24
     }
@@ -194,7 +194,7 @@
     "name": "Gus",
     "gender": 0,
     "marriageable": false,
-    "birthday": {
+    "date": {
       "season": 1,
       "day": 8
     }
@@ -204,7 +204,7 @@
     "name": "Jas",
     "gender": 1,
     "marriageable": false,
-    "birthday": {
+    "date": {
       "season": 1,
       "day": 4
     }
@@ -214,7 +214,7 @@
     "name": "Jodi",
     "gender": 1,
     "marriageable": false,
-    "birthday": {
+    "date": {
       "season": 2,
       "day": 11
     }
@@ -224,7 +224,7 @@
     "name": "Kent",
     "gender": 0,
     "marriageable": false,
-    "birthday": {
+    "date": {
       "season": 0,
       "day": 4
     }
@@ -234,7 +234,7 @@
     "name": "Leo",
     "gender": 0,
     "marriageable": false,
-    "birthday": {
+    "date": {
       "season": 1,
       "day": 26
     }
@@ -244,7 +244,7 @@
     "name": "Lewis",
     "gender": 0,
     "marriageable": false,
-    "birthday": {
+    "date": {
       "season": 0,
       "day": 7
     }
@@ -254,7 +254,7 @@
     "name": "Linus",
     "gender": 0,
     "marriageable": false,
-    "birthday": {
+    "date": {
       "season": 3,
       "day": 3
     }
@@ -264,7 +264,7 @@
     "name": "Marnie",
     "gender": 1,
     "marriageable": false,
-    "birthday": {
+    "date": {
       "season": 2,
       "day": 18
     }
@@ -274,7 +274,7 @@
     "name": "Pam",
     "gender": 1,
     "marriageable": false,
-    "birthday": {
+    "date": {
       "season": 0,
       "day": 18
     }
@@ -284,7 +284,7 @@
     "name": "Pierre",
     "gender": 0,
     "marriageable": false,
-    "birthday": {
+    "date": {
       "season": 0,
       "day": 26
     }
@@ -294,7 +294,7 @@
     "name": "Robin",
     "gender": 1,
     "marriageable": false,
-    "birthday": {
+    "date": {
       "season": 2,
       "day": 21
     }
@@ -304,7 +304,7 @@
     "name": "Sandy",
     "gender": 1,
     "marriageable": false,
-    "birthday": {
+    "date": {
       "season": 2,
       "day": 15
     }
@@ -314,7 +314,7 @@
     "name": "Vincent",
     "gender": 0,
     "marriageable": false,
-    "birthday": {
+    "date": {
       "season": 0,
       "day": 10
     }
@@ -324,7 +324,7 @@
     "name": "Willy",
     "gender": 0,
     "marriageable": false,
-    "birthday": {
+    "date": {
       "season": 1,
       "day": 24
     }
@@ -334,7 +334,7 @@
     "name": "Wizard",
     "gender": 0,
     "marriageable": false,
-    "birthday": {
+    "date": {
       "season": 3,
       "day": 17
     }
